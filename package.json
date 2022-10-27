@@ -7,6 +7,8 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
+    "@mate-academy/eslint-config": "0.0.20",
+    "eslint": "^8.26.0",
     "nodemon": "^2.0.20"
   }
 }

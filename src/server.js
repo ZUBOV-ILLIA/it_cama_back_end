@@ -7,7 +7,7 @@ const server = http.createServer((request, response) => {
   requestsCount++;
 
   switch (request.url) {
-            case '/students':
+    case '/students':
       response.write('STUDENTS ');
       break;
     case '/':
