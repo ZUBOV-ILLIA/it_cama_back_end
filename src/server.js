@@ -1,29 +1,24 @@
 const http = require('http');
 
-let requestsCount = 0;
-
 const server = http.createServer((request, response) => {
-
-  requestsCount++;
-
   switch (request.url) {
-    case '/students':
-      response.write('STUDENTS ');
+    case '/home':{
+      const start = new Date();
+      while(new Date() - start < 3000) {
+        console.log(new Date() - start)
+      }
+      const data = 'best free online course';
+      response.write(data);
+      response.end();
       break;
-    case '/':
-    case '/courses':
-      response.write('FRONT + BACK ');
-      break;
-    case '/favicon.ico':
-      requestsCount--;
-      break;
-    default:
-      response.write('404 not found ');
-  }
+    }
+    default: {
+      response.write('404 not found');
 
-  response.write('IT-KAMASUTRA: ' + requestsCount);
-  response.end();
+      response.end;
+    }
+  }
 });
 
 server.listen(3003);
-console.log('server is listening port 3003');
+console.log('server is listening http://localhost:3003/');
