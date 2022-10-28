@@ -5,9 +5,9 @@ const delay = (ms) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve();
-    }, ms)
+    }, ms);
   });
-}
+};
 
 const readFile = (path) => {
   return new Promise((resolve, reject) => {
@@ -17,15 +17,16 @@ const readFile = (path) => {
       } else {
         resolve(data);
       }
-    })
-  })
-}
+    });
+  });
+};
 
 const server = http.createServer(async (request, response) => {
   switch (request.url) {
     case '/home': {
       try {
-        const data = await readFile('./src/pages/home.html')
+        const data = await readFile('./src/pages/home.html');
+
         response.write(data);
         response.end();
       } catch (error) {
@@ -40,7 +41,7 @@ const server = http.createServer(async (request, response) => {
     case '/about': {
       try {
         await delay(3000);
-        const data = await readFile('./src/pages/aboutt.html')
+        const data = await readFile('./src/pages/aboutt.html');
         response.write(data);
         // response.write('ABOUT COURES');
         response.end();
@@ -64,7 +65,6 @@ const server = http.createServer(async (request, response) => {
       response.write('404 not found');
       response.end();
   }
-
 });
 
 server.listen(3003);
